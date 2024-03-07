@@ -5,15 +5,24 @@ sequenceDiagram
   participant browser
   participant server
 
-    note right of browser: The content-type tells the server that the data is in JSON format
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+    activate server
+    server-->>browser: HTML document : spa
+    deactivate server
 
-    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
-    server->>browser: Status code 201: Created
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate server
+    server-->>browser: CSS file
+    deactivate server
 
-    note right of browser: Fetches the javascript code from the server to update the notes
-    note right of browser: The browser remains on the same page
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+    activate server
+    server-->>browser: Javascript file
+    deactivate server
 
-
-
+    browser->>server: https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate server
+    server-->>browser: JSON file
+    deactivate server
 
 ```
