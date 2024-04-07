@@ -27,6 +27,22 @@ const Total = (props) => {
   )
 }
 
+const Hello = ({name,age}) => {
+  
+  const bornYear = () => { return new Date().getFullYear() - age}
+  
+  console.log(bornYear())
+
+  return (
+    <>
+      <p>
+        Hello, I think you, {name}, is somewhat stuck in tutorial hell
+      </p>
+      <p>Somehow a piece of shit like is born in {bornYear()}</p>
+    </>
+  )
+}
+
 const App = () => {
   const course = {
     name: 'Half stack application development',
