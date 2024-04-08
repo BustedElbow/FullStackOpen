@@ -14,11 +14,15 @@ const Display = ({anecdote, votes, voteHandle, nextHandle}) => {
   )
 }
 
-// const DisplayMostVotes = () => {
-//   return (
-
-//   )
-// }
+const MostVotes = ({anecdote, count}) => {
+  return (
+    <>
+      <h2>Anecdote with Most Votes</h2>
+      <p>{anecdote}</p>
+      <p>has {count} votes</p>
+    </>
+  )
+}
 
 const App = () => {
   const anecdote = [
@@ -54,8 +58,7 @@ const App = () => {
   return (
     <>
       <Display anecdote={anecdote[selected]} votes={votes[selected]} voteHandle={handleVote} nextHandle={selectRandom} />
-      <h2>Anecdote with most Votes</h2>
-      <p>{anecdote[mostVotes]}</p>
+      <MostVotes anecdote={anecdote[mostVotes]} count={votes[mostVotes]} />
     </>
   )
 }
